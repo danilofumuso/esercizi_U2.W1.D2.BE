@@ -8,12 +8,18 @@ import java.util.List;
 
 @Data
 @Entity
-public class Menu {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class MenuItem {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @ManyToMany
-    private List<MenuItem> menuItems=new ArrayList<>();
+    @Column(nullable = false)
+    private String nome;
 
+    @Column(nullable = false)
+    private int calorie;
+
+    @Column(nullable = false)
+    private double prezzo;
 }

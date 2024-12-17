@@ -31,5 +31,5 @@ public class Ordine {
     private double importoTotale;
 
     @ManyToMany
-    private List<Menu> menu=new ArrayList<>();
+    private List<MenuItem> prodottiOrdinati=new ArrayList<>();
 }

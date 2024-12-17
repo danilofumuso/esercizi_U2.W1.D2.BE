@@ -1,6 +1,6 @@
 package it.epicode.esercizi_U2.W1.D2.BE.runners;
 
-import it.epicode.esercizi_U2.W1.D2.BE.entities.Menu;
+import it.epicode.esercizi_U2.W1.D2.BE.entities.MenuItem;
 import it.epicode.esercizi_U2.W1.D2.BE.entities.Ordine;
 import it.epicode.esercizi_U2.W1.D2.BE.repository.MenuRepository;
 import it.epicode.esercizi_U2.W1.D2.BE.repository.OrdineRepository;
@@ -37,11 +37,11 @@ public class OrdiniRunner implements ApplicationRunner {
 
         ordineRepository.save(newOrdine);
 
-        List<Menu> menu = menuRepository.findAll();
+        List<MenuItem> menu = menuRepository.findAll();
 
-        newOrdine.setMenu(menu);
-        newOrdine.setNumeroCoperti(6);
-        newOrdine.setImportoTotale(menu.get(5).getPrezzo() + menu.get(2).getPrezzo() );
+//        newOrdine.setMenu(menu);
+//        newOrdine.setNumeroCoperti(6);
+//        newOrdine.setImportoTotale(menu.get(5).getPrezzo() + menu.get(2).getPrezzo() );
 
     }
 }

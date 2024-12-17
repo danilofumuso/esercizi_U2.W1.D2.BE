@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="toppings")
-public class Topping extends Menu {
+public class Topping extends MenuItem {
 }
