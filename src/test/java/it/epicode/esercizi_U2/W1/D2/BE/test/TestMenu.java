@@ -30,10 +30,10 @@ public class TestMenu {
 
     @Test
     @DisplayName("Confronto stato Ordini")
-    public void testOrdini(){
-        Ordine ordine = ordineRepository.findAll().getFirst();
-        Ordine ordine2 = ordineRepository.findAll().getLast();
-        assertFalse(ordine.getStatoOrdine()==ordine2.getStatoOrdine());
+    public void testOrdini() {
+        Ordine ordine = ordineRepository.findById(1L).orElse(null);
+        Ordine ordine2 = ordineRepository.findById(2L).orElse(null);
+        assertFalse(ordine.getStatoOrdine() == ordine2.getStatoOrdine());
 
     }
 
@@ -42,7 +42,7 @@ public class TestMenu {
     @ValueSource(strings = {"IN_CORSO", "PRONTO", "SERVITO"})
     public void testParametrico(String stato) {
 
-        Ordine ordine = ordineRepository.findAll().getFirst();
+        Ordine ordine = ordineRepository.findById(1L).orElse(null);
         assertEquals(ordine.getStatoOrdine().toString(), stato);
 
     }
