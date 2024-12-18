@@ -14,8 +14,18 @@ public class OrdiniConfiguration {
     Ordine newOrdine() {
         Ordine ordine = new Ordine();
         ordine.setStatoOrdine(StatoOrdineEnum.IN_CORSO);
-        ordine.setNumeroOrdine(ordine.getId());
         ordine.setOraAcquisizione(LocalTime.now());
         return ordine;
     }
+
+    @Bean
+    Ordine newOrdine2() {
+        Ordine ordine = new Ordine();
+        ordine.setStatoOrdine(StatoOrdineEnum.PRONTO);
+        ordine.setOraAcquisizione(LocalTime.now());
+        return ordine;
+    }
+
+
+
 }

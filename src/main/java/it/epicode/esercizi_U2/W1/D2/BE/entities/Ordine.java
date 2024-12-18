@@ -13,12 +13,10 @@ import java.util.List;
 public class Ordine {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private  Long id;
-
-    @Column(name="numero_ordine")
-    private Long numeroOrdine;
+    private Long id;
 
     @Column(name = "stato_ordine", nullable = false)
+    @Enumerated(EnumType.STRING)
     private StatoOrdineEnum statoOrdine;
 
     @Column(name = "numero_coperti")
@@ -30,6 +28,7 @@ public class Ordine {
     @Column(name = "importo_totale")
     private double importoTotale;
 
-    @ManyToMany
-    private List<MenuItem> prodottiOrdinati=new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "menu_id")
+    private Menu menu;
 }

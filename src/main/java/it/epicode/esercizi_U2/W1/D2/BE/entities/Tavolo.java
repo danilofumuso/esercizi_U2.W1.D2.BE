@@ -15,6 +15,7 @@ public class Tavolo {
     private int numeroCopertiMax;
 
     @Column(name = "stato_tavolo", nullable = false)
+    @Enumerated(EnumType.STRING)
     private StatoTavoloEnum statoTavolo;
 
     @OneToOne
