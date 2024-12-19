@@ -9,6 +9,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Component
 @Order(1)
 public class PizzeRunner implements ApplicationRunner {
@@ -32,6 +34,20 @@ public class PizzeRunner implements ApplicationRunner {
         pizzaRepository.save(newPizzaMargherita);
         pizzaRepository.save(newPizzaHawaaiiana);
         pizzaRepository.save(newPizzaSalame);
+
+
+        Pizza pizzaFound = pizzaRepository.findByNomeIgnoreCase("marGheRita");
+        System.out.println("Pizza trovata con il nome " + pizzaFound.getNome());
+
+        List<Pizza> pizzeFoundByPrezzo = pizzaRepository.findByPrezzoBetweenOrderByPrezzo(2.0, 6);
+        for (Pizza pizza : pizzeFoundByPrezzo) {
+            System.out.println(pizza.getNome() + " " + pizza.getCalorie());
+        }
+
+        List<Pizza> pizzeFoundWithCalories = pizzaRepository.findByOrderByCalorieAsc();
+        for (Pizza pizza : pizzeFoundWithCalories) {
+            System.out.println(pizza.getNome() + " " + pizza.getCalorie());
+        }
 
     }
 }
